@@ -19,8 +19,40 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout docs hub
         uses: actions/checkout@v5
+        with:
+          path: addon-wiki
+
+      - name: Checkout Anki AI Automation
+        uses: actions/checkout@v5
+        with:
+          repository: moritzvitt/anki-ai-automation
+          path: my-addons/anki-ai-automation
+
+      - name: Checkout Editor Focus Mode
+        uses: actions/checkout@v5
+        with:
+          repository: moritzvitt/reorder-fields-in-editor
+          path: my-addons/editor-focus-mode
+
+      - name: Checkout Limit Search Results
+        uses: actions/checkout@v5
+        with:
+          repository: moritzvitt/limit-search-results
+          path: my-addons/limit-search-results
+
+      - name: Checkout Cloze Formatting
+        uses: actions/checkout@v5
+        with:
+          repository: moritzvitt/myaddon
+          path: my-addons/misc-formatting
+
+      - name: Checkout Order By Frequency
+        uses: actions/checkout@v5
+        with:
+          repository: moritzvitt/order-by-frequency
+          path: my-addons/order-by-frequency
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,15 +63,21 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install docs dependencies
+        working-directory: addon-wiki
         run: pip install -r requirements-docs.txt
 
+      - name: Prepare missing add-on docs
+        working-directory: addon-wiki
+        run: ./scripts/prepare_my_addons_docs.sh
+
       - name: Build site
+        working-directory: addon-wiki
         run: mkdocs build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: site
+          path: addon-wiki/site
 
   deploy:
     environment:

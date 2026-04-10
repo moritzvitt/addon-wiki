@@ -1,6 +1,6 @@
 # Anki Add-ons
 
-This site combines the documentation for the Anki add-ons in the sibling `my-addons` and `other-addons` folders into one GitHub Pages site.
+This site combines the documentation for the Anki add-ons in the sibling `my-addons` folder into one GitHub Pages site.
 
 ## What this site does
 
@@ -24,14 +24,6 @@ This site combines the documentation for the Anki add-ons in the sibling `my-add
 - Order By Frequency
 - Suspend Duplicates
 
-### Other add-ons
-
-- Prettify
-- Smart Notes
-- Japanese Pitch Accent
-- Japanese Readings and Pitch Accent
-- Starter Repo Add-on
-
 ## Local development
 
 ```bash
@@ -42,3 +34,5 @@ mkdocs serve
 ```
 
 The root `mkdocs.yml` pulls in each add-on's own `mkdocs.yml` by using `mkdocs-monorepo-plugin`.
+
+On GitHub Actions, the workflow checks out the published `my-addons` repositories into sibling folders before building the site. Add-ons that are not published yet are filled with placeholder pages so the docs site can still build cleanly.
