@@ -1,0 +1,41 @@
+site_name: Anki Add-ons
+site_description: Combined documentation site for Moritz Vitt's Anki add-ons.
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+plugins:
+  - search
+  - monorepo
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - My Add-ons:
+      - Anki AI Automation: "!include ../my-addons/anki-ai-automation/mkdocs.yml"
+      - GitHub-like Field Diff: "!include ../my-addons/anki-github-diff/mkdocs.yml"
+      - Browser Quick Tags: "!include ../my-addons/browser-quick-tags/mkdocs.yml"
+      - Prompt Addon: "!include ../my-addons/chatgpt-helper/mkdocs.yml"
+      - Editor Focus Mode: "!include ../my-addons/editor-focus-mode/mkdocs.yml"
+      - Generated Field Swapper: "!include ../my-addons/field-swapper/mkdocs.yml"
+      - Limit Search Results: "!include ../my-addons/limit-search-results/mkdocs.yml"
+      - Link Cards: "!include ../my-addons/link-cards/mkdocs.yml"
+      - Cloze Formatting: "!include ../my-addons/misc-formatting/mkdocs.yml"
+      - Order By Frequency: "!include ../my-addons/order-by-frequency/mkdocs.yml"
+      - Suspend Duplicates: "!include ../my-addons/suspend-duplicates/mkdocs.yml"
+  - Other Add-ons:
+      - Prettify: "!include ../other-addons/anki-prettify-main/mkdocs.yml"
+      - Smart Notes: "!include ../other-addons/anki-smart-notes/mkdocs.yml"
+      - Japanese Pitch Accent: "!include ../other-addons/pitch-accent/mkdocs.yml"
+      - Japanese Readings and Pitch Accent: "!include ../other-addons/pitch-accent-coloring-addon/mkdocs.yml"
+      - Starter Repo Add-on: "!include ../other-addons/starter-repo with migaku code/mkdocs.yml"
